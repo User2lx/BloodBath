@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gore TikTok</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+        }
+        #ageCheckModal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        #ageCheckContent {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        button {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #777;
+        }
+        .feed {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .post {
+            background-color: #444;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+        }
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Age Verification Modal -->
+<div id="ageCheckModal">
+    <div id="ageCheckContent">
+        <h2>Age Verification</h2>
+        <p>Are you over 18 years old?</p>
+        <button onclick="verifyAge(true)">Yes</button>
+        <button onclick="verifyAge(false)">No</button>
+    </div>
+</div>
+
+<!-- Main Content (Feed) -->
+<div id="content" style="display: none;">
+    <h1>Gore TikTok Feed</h1>
+    <div class="feed">
+        <div class="post">
+            <img src="https://via.placeholder.com/300x200.png?text=Post+1" alt="Post 1">
+            <p>Post 1 Caption</p>
+        </div>
+        <div class="post">
+            <img src="https://via.placeholder.com/300x200.png?text=Post+2" alt="Post 2">
+            <p>Post 2 Caption</p>
+        </div>
+        <div class="post">
+            <img src="https://via.placeholder.com/300x200.png?text=Post+3" alt="Post 3">
+            <p>Post 3 Caption</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function verifyAge(isOver18) {
+        const modal = document.getElementById('ageCheckModal');
+        const content = document.getElementById('content');
+        
+        if (isOver18) {
+            modal.style.display = 'none'; // Hide the age verification modal
+            content.style.display = 'block'; // Show the feed
+        } else {
+            alert('You must be 18 or older to view this content.');
+            window.location.href = 'https://www.google.com'; // Redirect to a different site
+        }
+    }
+</script>
+
+</body>
+</html>
+
